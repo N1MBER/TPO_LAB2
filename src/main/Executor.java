@@ -1,8 +1,10 @@
 package main;
 
 import main.java.Calculator;
-import main.java.logorithm.*;
-import main.java.trigonometric.*;
+import main.java.logorithm.LogorithmException;
+import main.java.logorithm.LogorithmFunction;
+import main.java.trigonometric.TrigonometricException;
+import main.java.trigonometric.TrigonometricFunction;
 
 import java.util.Scanner;
 
@@ -144,39 +146,39 @@ public class Executor {
         double result = Double.NaN;
         switch (type){
             case "ln":{
-                result = Ln.calculateLn(x);
+                result = LogorithmFunction.lnx(x);
                 break;
             }
             case "log3":{
-                result = Log3.calculateLog3(x);
+                result = LogorithmFunction.log_3x(x);
                 break;
             }
             case "log5":{
-                result = Log5.calculateLog5(x);
+                result = LogorithmFunction.log_5x(x);
                 break;
             }
             case "log10":{
-                result = Log10.calculateLog10(x);
+                result = LogorithmFunction.log_10x(x);
                 break;
             }
             case "logexp":{
-                result = Calculator.secondFunction(x);
+                result = LogorithmFunction.calculateExpression(x);
                 break;
             }
             case "sin":{
-                result = Sin.calculateSin(x);
+                result = TrigonometricFunction.sinx(x);
                 break;
             }
             case "cos":{
-                result = Cos.calculateCos(x);
+                result = TrigonometricFunction.cosx(x);
                 break;
             }
             case "cot":{
-                result = Cot.calculateCot(x);
+                result = TrigonometricFunction.cotx(x);
                 break;
             }
             case "trigexp":{
-                result = Calculator.firstFunction(x);
+                result = TrigonometricFunction.calculateExpression(x);
                 break;
             }
             case "exp":{
