@@ -9,7 +9,7 @@ public class CSVWriter {
     private File file;
     private String fileName = "result-data.csv";
 
-    CSVWriter()  {
+    public CSVWriter()  {
         try{
             file = new File(fileName);
             if (!file.exists()){
@@ -23,7 +23,6 @@ public class CSVWriter {
 
     public void finish(){
        try {
-
            fileWriter.close();
        }catch (IOException e){
 
