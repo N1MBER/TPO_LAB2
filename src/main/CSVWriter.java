@@ -23,7 +23,7 @@ public class CSVWriter {
 
     public void finish(){
        try {
-           fileWriter.flush();
+
            fileWriter.close();
        }catch (IOException e){
 
@@ -31,7 +31,8 @@ public class CSVWriter {
     }
 
     private void writeValue(String str) throws IOException {
-        fileWriter.write(str + "\n");
+        fileWriter.write(str + ";\n");
+        fileWriter.flush();
     }
 
     public void writeToFile(String str){

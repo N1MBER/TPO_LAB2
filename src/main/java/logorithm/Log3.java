@@ -2,9 +2,9 @@ package main.java.logorithm;
 
 public class Log3 {
 
-    public static double calculateLog3(double x) throws LogorithmException{
+    public static double calculateLog3(double x){
         if (x < 0){
-            throw new LogorithmException("Not valid value");
+            return Double.NaN;
         }
         return Ln.calculateLn(x)/Ln.calculateLn(3);
     }

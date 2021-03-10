@@ -56,7 +56,7 @@ public class TrigonometricTest {
     //FUNCTION
     @Test
     public void funcTest1() throws TrigonometricException, LogorithmException {
-        Calculator calculator = new Calculator(-0.1);
+        Calculator calculator = new Calculator(-0.01);
         Assert.assertTrue(calculator.calculate() - INF < EPS);
     }
 

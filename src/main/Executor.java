@@ -32,7 +32,7 @@ public class Executor {
                     getCommand();
                     continue;
                 }
-                if ((str_arr.length == 0 || str_arr.length > 2) && (!checkAnswer(str_arr[0]))  ){
+                if (str_arr.length > 2 || !checkAnswer(str_arr[0])){
                     System.out.println("Некорректный ввод, повторите снова.");
                     continue;
                 }
