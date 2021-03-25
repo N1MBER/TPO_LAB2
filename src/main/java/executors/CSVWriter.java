@@ -1,7 +1,7 @@
-package main;
+package executors;
 
-import main.java.exceptions.FunctionsException;
-import main.java.functions.Function;
+import exceptions.FunctionsException;
+import functions.Function;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -31,7 +31,7 @@ public class CSVWriter implements AutoCloseable {
     }
 
 
-    public void writeRangeFunctionsValue(double start, double end, double step) throws IOException {
+    public void writeRangeFunctionsValue(Double start, Double end, Double step) throws IOException {
         double y;
         for (double x = start; x < end; x+=step) {
             try {
