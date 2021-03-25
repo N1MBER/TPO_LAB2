@@ -25,6 +25,18 @@ public class CSVWriter implements AutoCloseable {
         }
     }
 
+    public CSVWriter(String fileName){
+        try{
+            file = new File(fileName);
+            if (!file.exists()){
+                file.createNewFile();
+            }
+            this.fileWriter = new FileWriter(file, true);
+        }catch (IOException e){
+            System.out.println("Произошла ошибка: " + e.getMessage());
+        }
+    }
+
     public void addHeader() throws IOException {
         fileWriter.write("x, " + function.toString() + "\n");
         fileWriter.flush();
@@ -39,8 +51,19 @@ public class CSVWriter implements AutoCloseable {
             } catch (FunctionsException e) {
                 y = Double.NaN;
             }
-            fileWriter.write(x + "," + y + "\n");
+            fileWriter.write(function.getClass().getSimpleName() + ": x=" + x + ", y=" + y + "\n");
         }
+        fileWriter.flush();
+    }
+
+    public void writeFunctionsValue(Double val, Function function) throws IOException{
+        double y;
+        try{
+            y = function.calc(val);
+        } catch (FunctionsException e){
+            y = Double.NaN;
+        }
+        fileWriter.write(function.getClass().getSimpleName() + ": x=" + val + ", y=" + y + "\n");
         fileWriter.flush();
     }
 
@@ -48,4 +71,6 @@ public class CSVWriter implements AutoCloseable {
     public void close() throws Exception {
         fileWriter.close();
     }
+
+
 }
